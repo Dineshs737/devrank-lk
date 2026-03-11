@@ -2,7 +2,7 @@
 
 A weekly-updated leaderboard of Sri Lankan GitHub developers, ranked by open-source activity.
 
-**Live site →** `https://YOUR_USERNAME.github.io/YOUR_REPO`
+**Live site →** [devrank-lk](https://ktauchathuranga.github.io/devrank-lk/)
 
 ---
 
@@ -25,7 +25,7 @@ All metrics are based on the **past 12 months** of activity.
 
 ---
 
-## 🙋 Add yourself to the rankings
+## Add yourself to the rankings
 
 1. Fork this repo
 2. Add your GitHub username to [`data/users.json`](data/users.json):
