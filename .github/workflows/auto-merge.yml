@@ -1,0 +1,73 @@
+name: Auto-Approve and Merge Users
+
+on:
+  pull_request:
+    # This ensures the workflow only bothers running if users.json is involved
+    paths:
+      - 'data/users.json'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  verify-and-merge:
+    runs-on: ubuntu-latest
+    # Only run if the PR author is NOT the repository owner
+    if: github.event.pull_request.user.login != github.repository_owner
+
+    steps:
+      - name: Checkout PR code
+        uses: actions/checkout@v4
+
+      - name: Verify ONLY users.json was modified
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Fetch the list of changed files for this specific PR using the GitHub CLI
+          CHANGED_FILES=$(gh pr view ${{ github.event.pull_request.number }} --json files --jq '.files[].path')
+          
+          # Count how many files were changed
+          FILE_COUNT=$(echo "$CHANGED_FILES" | wc -l)
+          
+          echo "Files changed in this PR:"
+          echo "$CHANGED_FILES"
+          
+          if [ "$FILE_COUNT" -ne 1 ] || [ "$CHANGED_FILES" != "data/users.json" ]; then
+            echo "❌ Error: This PR modifies files other than data/users.json. Manual review required."
+            exit 1
+          fi
+          echo "✅ File isolation check passed!"
+
+      - name: Validate JSON syntax and structure
+        run: |
+          python3 -c '
+          import json, sys
+          try:
+              # Attempt to load the file
+              with open("data/users.json", "r") as f:
+                  data = json.load(f)
+              
+              # Rule 1: It must be an array [...]
+              if not isinstance(data, list):
+                  raise ValueError("The JSON file must contain a list array [] at the root.")
+                  
+              # Rule 2: If it is an object, it must have a "github" key
+              for item in data:
+                  if isinstance(item, dict) and "github" not in item:
+                      raise ValueError("Every user object must have a \"github\" key.")
+                      
+              print("✅ JSON validation passed!")
+          except Exception as e:
+              print(f"❌ JSON Validation Failed: {e}")
+              # Exiting with code 1 fails the GitHub Action, preventing the merge
+              sys.exit(1)
+          '
+
+      - name: Auto-merge PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "All checks passed. Merging PR..."
+          gh pr merge ${{ github.event.pull_request.number }} --merge --auto
+          
