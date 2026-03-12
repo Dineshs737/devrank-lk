@@ -1,8 +1,7 @@
 name: Auto-Approve and Merge Users
 
 on:
-  pull_request:
-    # This ensures the workflow only bothers running if users.json is involved
+  pull_request_target:
     paths:
       - 'data/users.json'
 
