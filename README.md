@@ -1,5 +1,3 @@
-# 🇱🇰 GitHub Sri Lanka — Developer Rankings
-
 A weekly-updated leaderboard of Sri Lankan GitHub developers, ranked by open-source activity.
 
 **Live site →** [devrank-lk](https://ktauchathuranga.github.io/devrank-lk/)
