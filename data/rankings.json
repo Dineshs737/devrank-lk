@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-11T21:25:33.172553+00:00",
-  "total_users": 5,
+  "generated_at": "2026-03-12T02:08:58.157808+00:00",
+  "total_users": 6,
   "rankings": [
     {
       "login": "ktauchathuranga",
@@ -11,20 +11,44 @@
       "website": "https://ktauchathuranga.github.io",
       "location": "Sri Lanka",
       "followers": 24,
-      "commits_this_year": 1235,
+      "commits_this_year": 1244,
       "prs_this_year": 137,
-      "issues_this_year": 162,
+      "issues_this_year": 163,
       "total_stars": 59,
-      "public_repos": 66,
-      "repos_contributed_to": 48,
+      "public_repos": 67,
+      "repos_contributed_to": 49,
       "top_languages": [
         "JavaScript",
         "Python",
         "Shell"
       ],
-      "score": 4974,
+      "score": 5003,
       "github_url": "https://github.com/ktauchathuranga",
       "rank": 1
+    },
+    {
+      "login": "Dineshs737",
+      "name": "Uthayakumar Dinesh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/112531821?u=19bd0d10de702da4a9772ec838e0858ed8884e73&v=4",
+      "bio": "",
+      "company": "",
+      "website": "",
+      "location": "",
+      "followers": 3,
+      "commits_this_year": 375,
+      "prs_this_year": 89,
+      "issues_this_year": 41,
+      "total_stars": 4,
+      "public_repos": 13,
+      "repos_contributed_to": 13,
+      "top_languages": [
+        "TypeScript",
+        "JavaScript",
+        "Go"
+      ],
+      "score": 1671,
+      "github_url": "https://github.com/Dineshs737",
+      "rank": 2
     },
     {
       "login": "chapayev0",
@@ -48,7 +72,7 @@
       ],
       "score": 422,
       "github_url": "https://github.com/chapayev0",
-      "rank": 2
+      "rank": 3
     },
     {
       "login": "SLUICEPRJCT",
@@ -70,7 +94,7 @@
       ],
       "score": 1,
       "github_url": "https://github.com/SLUICEPRJCT",
-      "rank": 3
+      "rank": 4
     },
     {
       "login": "prasadrandombage",
@@ -92,7 +116,7 @@
       ],
       "score": 0,
       "github_url": "https://github.com/prasadrandombage",
-      "rank": 4
+      "rank": 5
     },
     {
       "login": "mihos",
@@ -112,7 +136,7 @@
       "top_languages": [],
       "score": 0,
       "github_url": "https://github.com/mihos",
-      "rank": 5
+      "rank": 6
     }
   ]
 }
